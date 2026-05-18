@@ -65,8 +65,8 @@ class ModernCalculator:
             ("+", 3, 3, self.operator_bg),
             
             ("0", 4, 0, self.button_bg),
-            (".", 4, 1, self.button_bg),
-            ("=", 4, 2, "#51cf66"),
+            (".", 4, 2, self.button_bg),
+            ("=", 4, 3, "#51cf66"),
         ]
         
         for (text, row, col, color) in buttons:
@@ -86,9 +86,7 @@ class ModernCalculator:
             command=lambda: self.on_button_click(text)
         )
         
-        if text == "0":
-            btn.grid(row=row, column=col, columnspan=2, sticky="nsew", padx=5, pady=5)
-        elif text == "=":
+        if text == "0" and col == 0:
             btn.grid(row=row, column=col, columnspan=2, sticky="nsew", padx=5, pady=5)
         else:
             btn.grid(row=row, column=col, sticky="nsew", padx=5, pady=5)
